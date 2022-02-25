@@ -11,18 +11,44 @@
     <div id="carinho">
         </div>
         <script>
-            const items={
+            const items=[
+                {
                 id:0,
                 nome:'tomate',
-                imagem:'1.jpg',
+                img:'1.jpg',
                 quantidade:0
             },
-            const items={
+            {
                 id:1,
                 nome:'alface',
-                imagem:'2.jpg',
+                img:'2.jpg',
                 quantidade:0
             },
+            {
+                id:1,
+                nome:'cenoura',
+                img:'3.jpg',
+                quantidade:0
+            },
+            ]
+            inicializarLoja = () =>{
+                var containerProdutos=document.getElementById('produtos');
+                items.map((val)=>{
+                   containerProdutos.innerHTML+=
+                   '<div class="produto-single">'+ 
+         '<img src="'+val.img+'"/>'
+                    
+                   + '<p>'+val.nome+'</p>'
+                    
+                    +' <a key="'+val.id+'" href="">Adicionar carinho!</a>'+ 
+                  
+                    
+                        '</div>'
+                   
+                })
+            }
+            inicializarLoja();
+     
             </script>
 </head>
 <body>
