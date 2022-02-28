@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja virtual:</title>
+    <div id="produtos">
+
+    </div>
+    <div id="carinho">
+        </div>
+        <script>
+            const items=[
+                {
+                id:0,
+                nome:'tomate',
+                img:'1.jpg',
+                quantidade:0
+            },
+            {
+                id:1,
+                nome:'alface',
+                img:'2.jpg',
+                quantidade:0
+            },
+            {
+                id:1,
+                nome:'cenoura',
+                img:'3.jpg',
+                quantidade:0
+            },
+            ]
+            inicializarLoja = () =>{
+                var containerProdutos=document.getElementById('produtos');
+                items.map((val)=>{
+                   containerProdutos.innerHTML+=
+                   '<div class="produto-single">'+ 
+         '<img src="'+val.img+'"/>'
+                    
+                   + '<p>'+val.nome+'</p>'
+                    
+                    +' <a key="'+val.id+'" href="">Adicionar carinho!</a>'+ 
+                  
+                    
+                        '</div>';
+                   
+                })
+            }
+            inicializarLoja();
+            
+            atualizarCarrinho = () =>{
+              console.log(items);
+            }
+            
+            var links=document.getElementsByTagName('a');
+
+            for(var i=0;i<links.length;i++){
+              
+                links[i].addEventListener("click",function(){
+                    let key=this.getAttribute('key');  
+                    items[key].quantidade++;
+                    atualizarCarrinho(); 
+                    event.preventDefault();
+                  
+                })
+            }
+            </script>
+</head>
+<body>
+    
+</body>
+</html>
