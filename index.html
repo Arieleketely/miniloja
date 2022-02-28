@@ -8,7 +8,7 @@
     <div id="produtos">
 
     </div>
-    <div id="carinho">
+    <div id="carrinho">
         </div>
         <script>
             const items=[
@@ -48,23 +48,24 @@
                 })
             }
             inicializarLoja();
-            
+      
             atualizarCarrinho = () =>{
-              console.log(items);
-            }
+               
+                var containerCarrinho=document.getElementById('carrinho');
             
-            var links=document.getElementsByTagName('a');
+                containerCarrinho.innerHTML="";
+                items.map((val)=>{
+                    if(val.quantidade>0){
+                    containerCarrinho.innerHTML+=
+ 
+            '<p>'+val.nome+'|quantidade'+val.quantidade+'</p>'
+            +
+'<hr';
 
-            for(var i=0;i<links.length;i++){
-              
-                links[i].addEventListener("click",function(){
-                    let key=this.getAttribute('key');  
-                    items[key].quantidade++;
-                    atualizarCarrinho(); 
-                    event.preventDefault();
-                  
+                }
                 })
             }
+            atualizarCarrinho();
             </script>
 </head>
 <body>
